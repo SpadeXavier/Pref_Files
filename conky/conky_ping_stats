@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+# Place in /usr/bin/conky_ping_stats
+import subprocess
+output = subprocess.check_output('ping -c 5 google.com | tail -n1', shell=True) 
+output = output.decode('UTF-8')
+average_ping = ''; jitter = ''; 
+counter = 0
+for index,char in enumerate(output):
+    if char == '/':
+        counter += 1
+    if counter == 4 and char != '/':
+        average_ping += str(char) 
+    if counter == 6 and char != '/':
+        jitter += str(char)
+print("Output: " + output) 
+print("Average Ping: " + average_ping) 
+print("Jitter: " + jitter) 
+

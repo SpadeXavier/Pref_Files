@@ -1,0 +1,92 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! archlinux.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
+
+" automatically re-source this file after saving it
+autocmd! bufwritepost vimrc source %
+
+" Better copy & pasting
+set pastetoggle=<F2>
+set clipboard=unnamedplus
+
+" Rebind <Leader> key
+let mapleader = ","
+
+" Better window navigation
+nnoremap gw <C-w>h
+nnoremap gW <C-w>l
+nnoremap gd <C-w>j
+nnoremap gD <C-w>k
+nnoremap gr <C-w>r
+
+" mapping the sort function 
+vnoremap <Leader>s :sort<CR> 
+
+" easier moving of code blocks
+vnoremap < <gv 
+vnoremap > >gv 
+
+" show whitespace
+" MUST be inserted BEFORE the colorscheme command
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Saving of files when forget to use sudo
+cmap w!! w !sudo tee > /dev/null %
+
+" Color stuff
+colorscheme wombat256mod
+
+" Showing line numbers and length
+set number     " show line numbers
+set tw=79      " allow up to 80 characters
+" set colorcolumn=80   " add a column at end of 80 
+highlight ColorColumn ctermbg=233   
+
+" setting history 
+set history=700 
+set undolevels=700
+
+" Make search case insensitie
+set hlsearch    " highlight previous matches
+set incsearch   " live matching
+set ignorecase
+set smartcase   " uses case-sensitive if upper-case letter involved
+
+" Quit all windows but current
+nnoremap ga :only<CR> 
+
+
+
+
+
+syntax on
+filetype plugin indent on
+imap jj <Esc>
+set nobackup
+set nowritebackup
+set noswapfile
+set visualbell
+set noerrorbells
+nnoremap j gj
+nnoremap k gk
+set autowrite
+set makeprg=python\ %
+nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+autocmd FileType java nnoremap <buffer> <F10> :exec '!javac' shellescape(expand('%'), 1) '&& java' shellescape(expand('%:r'), 1)<cr>
+

@@ -1,0 +1,11 @@
+# ~/.bash_functions
+cw () {
+	iw dev wlp8s0 link
+} 
+
+prev () {
+	history | tail -2 | head -1 | grep -o '/.*$' | awk '{print $1}' | awk '{print $1}' | xargs $1
+}
+
+
+

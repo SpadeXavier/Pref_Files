@@ -1,0 +1,62 @@
+# **********************************************************************
+# IP Configuration theme for Conky by Varun Krishnan
+#
+# Designed for Arch Linux
+# **********************************************************************
+# ~/.conky/Varun/Ip
+background yes
+double_buffer yes
+alignment bottom_right
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+gap_x 0
+gap_y 160
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+minimum_size 170 0
+stippled_borders 0
+uppercase no
+use_spacer none
+total_run_times 0          #So it doesn't infinite loop if no wifi and then just quit before wifi reconnects
+show_graph_scale no
+show_graph_range no
+use_xft yes
+xftalpha 0.1
+xftfont Droid Sans:size=9
+color0 white
+color1 EAEAEA
+color2 FFA300
+color3 grey
+TEXT
+#YOU HAVE TO USE exec(i) BEFORE A TERMINAL COMMAND FOR IT TO WORK IN CONKY
+${color2}Connected to:${color0}${alignr}${execi 5 iw dev wlp3s0 link | grep SSID | cut -d : -f 2}
+${color3}$hr
+${color2}Local${color0}${alignr}${execi 1 hostname -i | sed -e 's/[[:space:]]*$//'}  
+${color2}Public${color0}${alignr}${execi 1 curl ipinfo.io/ip}  
+${color3}$hr
+${color2}Ping ${color0}${alignr}${execi 10 conky_ping_stats | grep Ping | cut -d' ' -f 3} ms
+# ${downspeedgraph wlp8s0 80,}
+${color2}Jitter ${color0}${alignr}${execi 10 conky_ping_stats | grep Jitter | cut -d' ' -f 2} ms
+# ${upspeedgraph wlp8s0 80,} 
+${color3}$hr
+${color2}Download${color0}${alignr}${execi 40 speedtest | grep 'Download' | cut -d' ' -f 2} Mbit/s
+${color2}Upload${color0}${alignr}${execi 40 speedtest | grep 'Upload' | cut -d' ' -f 2} Mbit/s
+# exec - runs the commmand once
+# execi ## - runs the command repeatedly every ## seconds

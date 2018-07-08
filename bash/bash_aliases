@@ -1,0 +1,28 @@
+# ~/.bash_aliases
+
+# For ls
+alias l='ls --color=auto'
+alias ls='ls --color=auto'
+alias l1='ls -1' # Lists everything in one column
+alias la='ls -a'
+alias ll='ls -lah' 
+
+# pwd by default doesn't show physical location but logical location
+# this can be a problem if you change into a linked directory therefore
+# force pwd to show the physical, not logical, location
+alias pwd='pwd -P' 
+
+alias c='clear'
+alias open='xdg-open'
+alias space='du -hsc'
+# For R programming language
+alias R='R --quiet --no-save'
+# So that zip and gzip always uses maximum compression
+alias zip='zip -9'
+alias gzip='gzip -9'
+# Making bzip2 use maximum compression and keep original file 
+alias bzip2='bzip2 -9 -k'
+alias bunzip2='bunzip2 -k'     # Unzipping a .bz file
+# To make grep highlight your pattern in the returned line!!!!
+alias grep='grep --color=auto'
+

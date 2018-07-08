@@ -1,0 +1,37 @@
+// ~/.config/sublime_preferences/Dawn.sublime-settings
+{
+	"bold_folder_labels": true,
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Predawn/predawn.tmTheme",
+	"draw_minimap_border": true,
+	"enable_tab_scrolling": false,
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Source Code Pro",
+	"font_size": 12,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"match_brackets": false,
+	"match_brackets_content": false,
+	"match_selection": false,
+	"match_tags": false,
+	"material_theme_accent_graphite": true,
+	"material_theme_compact_sidebar": true,
+	"open_files_in_new_window": false,
+	"overlay_scroll_bars": "enabled",
+	"preview_on_click": false,
+	"scroll_past_end": true,
+	"scroll_speed": 5.0,
+	"show_definitions": false,
+	"show_encoding": true,
+	"show_errors_inline": false,
+	"theme": "Material-Theme-Darker.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": true
+}

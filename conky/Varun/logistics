@@ -1,0 +1,80 @@
+# ~/.conky/Varun/logistics
+# Use Xft?
+use_xft yes
+xftfont Open Sans Light:size=7
+xftalpha 0.8
+text_buffer_size 2048
+uppercase yes
+# Update interval in seconds
+update_interval 1
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_type dock
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+#own_window_argb_visual yes
+#own_window_argb_value 255
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+minimum_size 0 0
+# Draw shades?
+draw_shades no
+default_shade_color 292421
+# Draw outlines?
+draw_outline no
+# Draw borders around text
+draw_borders no
+# Stippled borders?
+stippled_borders 0
+# border margins
+#border_inner_margin 30
+#border_outer_margin 0
+draw_graph_borders no
+# border width
+border_width 0
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 0
+gap_y 40
+#	Open Sans Light             fonts
+#	Droid Sans
+imlib_cache_size 0
+# 000000 is black
+color1 808B96
+color2 808B96
+color3 808B96
+color4 808B96
+color5 808B96
+color6 808B96
+color7 808B96
+# heading for TOP PROCESSES 
+color8 white    
+own_window_argb_value 0
+own_window_argb_visual yes
+own_window_colour 000000
+TEXT
+${image ~/.conky-weather-icons/background.png -p 0,34 -s 287x682}${image ~/.conky-weather-icons/box.png -p 10,168 -s 267x64}${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=44418&u=c" -o ~/.cache/weather.xml}
+${goto 50}${color8}${font Open Sans Light:size=13}Processors/Memory
+${goto 14}${color5}${font Droid Sans:pixelsize=13}CPU 1: ${color1}${alignc}${freq_g 0} ${color1}Ghz ${goto 14}${color2}${alignr}${goto 254}${cpu cpu0}${color1}%
+${goto 14}${color5}${font Droid Sans:pixelsize=13}CPU 2: ${color1}${alignc}${freq_g 1} ${color1}Ghz ${goto 14}${color2}${alignr}${goto 254}${cpu cpu1}${color1}%
+${goto 14}${color5}${font Droid Sans:pixelsize=13}CPU 3: ${color1}${alignc}${freq_g 2} ${color1}Ghz ${color2}${alignr}${goto 254}${cpu cpu2}${color1}%
+${goto 14}${color5}${font Droid Sans:pixelsize=13}CPU 4: ${color1}${alignc}${freq_g 3} ${color1}Ghz ${color2}${alignr}${goto 254}${cpu cpu3}${color1}%
+${goto 14}${alignr}${goto 14}${loadgraph 50,266 6db9d5 6db9d5 -l}
+${goto 14}${color5}${font Droid Sans:pixelsize=13}RAM: ${color1}${alignc 10}${mem}
+${goto 14}${color5}${font Droid Sans:pixelsize=13}TOTAL: ${color1}${alignc 10}${memmax}
+${image ~/.conky-weather-icons/separator.png -p 1,592 -s 285x2}
+${goto 74}${color8}${font Open Sans Light:size=13}Top Processes
+${goto 14}${color1}${font Droid Sans:pixelsize=13}${color5}${top_mem name 1}${color1}${alignc -10}${top_mem mem_res 1}${color2}${alignr}${goto 234}${top_mem mem 1}${color1} %
+${goto 14}${color1}${font Droid Sans:pixelsize=13}${color5}${top_mem name 2}${color1}${alignc -10}${top_mem mem_res 2}${color2}${alignr}${goto 234}${top_mem mem 2}${color1} %
+${goto 14}${color1}${font Droid Sans:pixelsize=13}${color5}${top_mem name 3}${color1}${alignc -10}${top_mem mem_res 3}${color2}${alignr}${goto 234}${top_mem mem 3}${color1} %
+${goto 14}${color1}${font Droid Sans:pixelsize=13}${color5}${top_mem name 4}${color1}${alignc -10}${top_mem mem_res 4}${color2}${alignr}${goto 234}${top_mem mem 4}${color1} %
+${goto 14}${color1}${font Droid Sans:pixelsize=13}${color5}${top_mem name 5}${color1}${alignc -10}${top_mem mem_res 5}${color2}${alignr}${goto 234}${top_mem mem 5}${color1} %
+

@@ -1,0 +1,27 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+
+# Searches ~/.bash_aliases for possible aliases
+if [ -f ~/.bash_aliases ]; then
+	source ~/.bash_aliases
+fi 
+
+# Searches ~/,bash_functions for possible functions
+if [ -f ~/.bash_functions ]; then
+	source ~/.bash_functions
+fi
+
+export EDITOR=vim #Sets default editor(editor path variable) to vi!
+
+# To save a multi-line command as one history entry
+shopt -s cmdhist
+
+# Disable XOFF flow contral so that ^s can be used for forward history searching
+stty -ixon
