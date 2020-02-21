@@ -50,7 +50,9 @@ vnoremap > >gv
 cmap w!! w !sudo tee > /dev/null %
 
 " Color stuff
-colorscheme wombat256mod
+" Download wombat256mod.vim at https://www.vim.org/scripts/script.php?script_id=2465
+" Add it to /usr/share/vim/vimfiles/colors/
+" colorscheme wombat256mod
 
 " Showing line numbers and length
 set number     " show line numbers
